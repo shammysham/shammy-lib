@@ -1,24 +1,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>UnimportantInfo</groupId>
+    <groupId>shammylib</groupId>
 
-    <artifactId>LaunchPad</artifactId>
+    <artifactId>shammy-lib</artifactId>
     <version>0.0.1</version>
-    <name>LaunchPad</name>
-    <description>A testing zone, intended to prepare your mod for liftoff.</description>
+    <name>shammy-lib</name>
+    <description>A core library of helpers I use in my own mods that I think others may find helpful. See GitHub Wiki for more information.</description>
     <!-- Change the above for mod information. -->
 
     <properties>
+        <ModID>shammy-lib</ModID>
+        <author>Shammy</author>
+
+        <!--Change this to match your Steam installation.-->
+        <Steam.path>D:\Programs\Steam\steamapps</Steam.path>
+
+        <!--These don't have to be up to date, it's just nice if they are.-->
+        <SlayTheSpire.version>03-07-2022</SlayTheSpire.version>
+        <ModTheSpire.version>3.30.3</ModTheSpire.version>
+
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <SlayTheSpire.version>12-22-2020</SlayTheSpire.version>
-        <ModTheSpire.version>3.18.2</ModTheSpire.version>
-        <ModID>launchpad</ModID>
-
-        <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
-        <Steam.path>C:/Program Files (x86)/Steam/steamapps/</Steam.path>
-
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -50,6 +54,24 @@
             <scope>system</scope>
             <systemPath>${Steam.path}/workshop/content/646570/1609158507/StSLib.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>4.11.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>4.11.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 
@@ -74,6 +96,19 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <manifestEntries>
+                            <Built-By>${author}</Built-By>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
 
