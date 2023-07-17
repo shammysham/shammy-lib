@@ -5,8 +5,8 @@
 
     <artifactId>shammy-lib</artifactId>
     <version>0.0.1</version>
-    <name>shammy-lib</name>
-    <description>A core library of helpers I use in my own mods that I think others may find helpful. See GitHub Wiki for more information.</description>
+    <name>Shammy Lib</name>
+    <description>A core library of helpers I use in my own mods that I think others may find helpful. See GitHub Wiki for more information. (WIP)</description>
     <!-- Change the above for mod information. -->
 
     <properties>
